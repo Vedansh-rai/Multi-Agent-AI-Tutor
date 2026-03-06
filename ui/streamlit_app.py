@@ -24,6 +24,22 @@ st.set_page_config(
 # ── API Config ──
 API_BASE = os.getenv("API_BASE_URL", "http://localhost:8001")
 
+# ── Streamlit Cloud Compatibility (Auto-Start Backend) ──
+import subprocess
+import socket
+import time
+
+@st.cache_resource
+def start_backend():
+    def is_port_in_use(port: int) -> bool:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            return s.connect_ex(('localhost', port)) == 0
+    if not is_port_in_use(8001):
+        subprocess.Popen([sys.executable, "app.py"])
+        time.sleep(3)
+
+start_backend()
+
 
 # ── Custom Styling ──
 st.markdown("""
