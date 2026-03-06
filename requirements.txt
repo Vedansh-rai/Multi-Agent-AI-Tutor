@@ -1,0 +1,42 @@
+# Core Framework
+fastapi>=0.110.0
+uvicorn>=0.29.0
+python-multipart>=0.0.9
+pydantic>=2.7.0
+
+# AI / LLM
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langchain-community>=0.3.0
+langgraph>=0.2.0
+openai>=1.40.0
+groq>=0.11.0
+google-generativeai>=0.7.0     # Gemini provider
+
+# Vector DB & Embeddings
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
+
+# OCR
+easyocr>=1.7.0
+
+# Math
+sympy>=1.13.0
+
+# UI
+streamlit>=1.38.0
+
+# Utilities
+python-dotenv>=1.0.0
+Pillow>=10.0.0
+numpy<2.0.0
+requests>=2.31.0
+PyPDF2>=3.0.0
+setuptools
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+
+# Speech-to-Text (optional — install separately)
+# openai-whisper
