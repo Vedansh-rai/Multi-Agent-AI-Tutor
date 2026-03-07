@@ -374,6 +374,15 @@ if result:
         with tab1:
             # Final Answer
             st.markdown("### ✅ Final Answer")
+            
+            # If the backend returned the default placeholder, try to extract it from the explanation
+            if "Refer to the step-by-step" in final_ans and explanation_text:
+                import re
+                # Look for "Step 4: Interpret result - solutions are x = 2 and x = 3" or similar
+                match = re.search(r"solutions are([^<]+?)(?:Step|✅ Verification|💡 Key Insight|$)", explanation_text, re.IGNORECASE)
+                if match:
+                    final_ans = match.group(1).strip()
+            
             if final_ans.strip().startswith("{"):
                 try:
                     import json as _json
